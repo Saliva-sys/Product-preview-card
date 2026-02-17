@@ -5,6 +5,7 @@
     --Grey: hsl(228, 12%, 48%);
     --Cream: hsl(30, 38%, 92%);
     --White: hsl(0, 0%, 100%);
+    --Blue: hsl(228, 45%, 44%);
 }
 
 * {
@@ -17,11 +18,35 @@ body {
     align-items: center;
     justify-content: center;
     background-color: var(--Cream);
-    font-family: 'Montserrat', sans-serif;
-    font-size: 0.875rem;
-    font-weight: 500;
     margin: 0 auto;
     gap: 0.5rem;
+}
+
+/* Pre nadpis (Fraunces) */
+h1 {
+  font-family: 'Fraunces', serif;
+  font-weight: 700;
+  font-size: 2rem;
+  line-height: 1;
+  letter-spacing: -0.018rem;
+  margin: 0;
+  padding-inline-start: 2rem;
+  padding-inline-end: 2rem;
+  padding-block-start: clamp(1.2rem, calc(1.606rem - 0.451vw), 1.5rem);
+  color: var(--Black);
+}
+
+picture {
+    display: block;
+    width: 100%;
+    height: 100%;
+}
+
+picture img {
+    width: 100%;
+    height: 100%;
+    display: block;
+    object-fit: cover; /* Toto zabezpečí, že sa parfum nedeformuje */
 }
 
 .card {
@@ -31,28 +56,93 @@ body {
     background-color: var(--White);
     width: 100%;
     max-width: clamp(21.938rem, calc(16.458rem + 23.38vw), 37.5rem);
+    margin-inline-start: 0.09375rem;
+    margin-inline-end: 0.09375rem;
     margin-block-start: clamp(5rem, calc(2.923rem + 8.864vw), 10.9rem);
-    margin-inline-start: 2px;
-    border-radius: 0.5rem;
+    border-radius: clamp(0.5rem, 1.5vw, 0.75rem); 
 }
 
-picture {
-    display: block;
-    height: auto;
-    margin: 0 auto;
-}
-
-source, img {
+.content {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
     width: 100%;
-    max-width: 100%;
-    height: auto;
-    object-fit: cover;    /* Zabezpečí, že sa obrázok pri zmene pomeru nezdeformuje */
+    font-family: 'Montserrat', sans-serif;
+    font-size: 0.875rem;
+    font-weight: 500;
+    margin: 0;
 }
 
-/* Pre nadpis (Fraunces) */
-h1 {
-  font-family: 'Fraunces', serif;
-  font-weight: 700;
+.directory {
+    font-size: 0.72rem;
+    letter-spacing: 0.34rem;
+    color: var(--Grey);
+    margin: 0;
+    padding-block-start: clamp(2rem, calc(1.627rem + 0.526vw), 2.1rem);
+    padding-inline-start: 2rem;
+}
+
+.description {
+    color: var(--Grey);
+    margin: 0;
+    padding-block-start: 1.5rem;
+    padding-inline-end: 2rem;
+    padding-inline-start: 2.05rem;
+    line-height: clamp(1.375rem, calc(1.349rem + 0.113vw), 1.45rem);;
+}
+
+.price{
+    display: block;
+    flex-direction: row;
+    justify-items: center;
+    align-items: center;
+    margin: 0;
+    padding-block-start: clamp(1.2rem, calc(1.059rem + 0.601vw), 1.6rem);
+    padding-inline-start: 2rem;
+    padding-block-end: clamp(1.35rem, calc(1.227rem + 0.526vw), 1.7rem);
+    font-family: 'Fraunces', serif;
+}
+
+.actual-price {
+    font-weight: 700;
+    font-size: clamp(1.9rem, calc(1.968rem - 0.075vw), 1.95rem);
+    letter-spacing: 0.04rem;
+    margin: 0;
+    color: var(--Green-500);
+}
+
+.origin-price {
+    margin: 0;
+    font-weight: 500;
+    font-size: 0.75rem;
+    color: var(--Grey);
+}
+
+.btn {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    margin-inline-start: 2.05rem;
+    margin-block-end: 2.05rem;
+    width: clamp(14.688rem, calc(18.913rem - 4.695vw), 17.813rem);
+    font-family: 'Montserrat', sans-serif;
+    font-size: 0.875rem;
+    font-weight: 700;
+    padding-block-end: 0.95rem;
+    padding-block-start: 1rem;
+    border: none;
+    border-radius: 0.5rem;
+    background-color: var(--Green-500);
+    color: var(--White);
+}
+
+.btn img {
+    width: 25px;
+    height: 15px;
+    height: auto;
+    object-fit: cover;
+    padding-inline-end: 1.605rem;
 }
 
 .attribution { 
@@ -67,10 +157,12 @@ h1 {
 @media (min-width: 48rem)  /* 48rem = 768px*/ {
     .card {
         flex-direction: row;
+        align-items: stretch; /* Vynúti rovnakú výšku stĺpcov */
     }   
 
     picture, .content {
         flex: 1;
+        width: 50%; /* Zabezpečí presnú polovicu */
+        height: 56.5vh;
     }
-
 }
