@@ -16,36 +16,28 @@ body {
     display: flex;
     flex-direction: column;
     align-items: center;
-    justify-content: center;
+    justify-content: flex-start;
+    min-height: 100vh;
     background-color: var(--Cream);
     margin: 0 auto;
-    gap: 0.5rem;
+    padding-block-start: 5rem;
 }
 
-/* Pre nadpis (Fraunces) */
 h1 {
-  font-family: 'Fraunces', serif;
-  font-weight: 700;
-  font-size: 2rem;
-  line-height: 1;
-  letter-spacing: -0.018rem;
-  margin: 0;
-  padding-inline-start: 2rem;
-  padding-inline-end: 2rem;
-  padding-block-start: clamp(1.2rem, calc(1.606rem - 0.451vw), 1.5rem);
-  color: var(--Black);
-}
-
-picture {
-    display: block;
-    width: 100%;
-    height: 100%;
+    font-family: 'Fraunces', serif;
+    font-weight: 700;
+    font-size: 2rem;
+    line-height: 1;
+    letter-spacing: -0.018rem;
+    color: var(--Black);
+    margin: 0;
+    padding-block-start: 0.5rem;
 }
 
 picture img {
+    display: block;
     width: 100%;
     height: 100%;
-    display: block;
     object-fit: cover; /* Toto zabezpečí, že sa parfum nedeformuje */
 }
 
@@ -53,24 +45,21 @@ picture img {
     display: flex;
     flex-direction: column;
     overflow: hidden;
-    background-color: var(--White);
-    width: 100%;
+    margin: 0;
     max-width: clamp(21.938rem, calc(16.458rem + 23.38vw), 37.5rem);
-    margin-inline-start: 0.09375rem;
-    margin-inline-end: 0.09375rem;
-    margin-block-start: clamp(5rem, calc(2.923rem + 8.864vw), 10.9rem);
-    border-radius: clamp(0.5rem, 1.5vw, 0.75rem); 
+    background-color: var(--White);
+    border-radius: 0.5rem;    
 }
 
 .content {
     display: flex;
     flex-direction: column;
-    align-items: flex-start;
-    width: 100%;
+    padding-inline: 2rem;
+    padding-block-start: 2rem;
     font-family: 'Montserrat', sans-serif;
     font-size: 0.875rem;
     font-weight: 500;
-    margin: 0;
+    padding-block-end: clamp(0rem, calc(2.704rem - 3.005vw), 2rem);
 }
 
 .directory {
@@ -78,44 +67,41 @@ picture img {
     letter-spacing: 0.34rem;
     color: var(--Grey);
     margin: 0;
-    padding-block-start: clamp(2rem, calc(1.627rem + 0.526vw), 2.1rem);
-    padding-inline-start: 2rem;
+    padding-block-end: 0.95rem;
 }
 
 .description {
     color: var(--Grey);
     margin: 0;
     padding-block-start: 1.5rem;
-    padding-inline-end: 2rem;
-    padding-inline-start: 2.05rem;
-    line-height: clamp(1.375rem, calc(1.349rem + 0.113vw), 1.45rem);;
+    line-height: clamp(1.375rem, calc(1.349rem + 0.113vw), 1.4rem);
 }
 
-.price{
-    display: block;
+.price {
+    display: flex;
     flex-direction: row;
-    justify-items: center;
     align-items: center;
     margin: 0;
-    padding-block-start: clamp(1.2rem, calc(1.059rem + 0.601vw), 1.6rem);
-    padding-inline-start: 2rem;
-    padding-block-end: clamp(1.35rem, calc(1.227rem + 0.526vw), 1.7rem);
     font-family: 'Fraunces', serif;
+    padding-block: clamp(1.25rem, calc(1.096rem + 0.657vw), 1.688rem) clamp(1.25rem, calc(1.085rem + 0.704vw), 1.719rem);
 }
 
 .actual-price {
     font-weight: 700;
     font-size: clamp(1.9rem, calc(1.968rem - 0.075vw), 1.95rem);
-    letter-spacing: 0.04rem;
-    margin: 0;
+    letter-spacing: 0.04rem;    
     color: var(--Green-500);
+    margin: 0;
 }
 
 .origin-price {
     margin: 0;
+    font-family: 'Montserrat', sans-serif;
     font-weight: 500;
-    font-size: 0.75rem;
+    font-size: 0.8rem;
     color: var(--Grey);
+    padding-inline-start: clamp(0.938rem, calc(0.847rem + 0.385vw), 1.194rem);
+    text-decoration-line: line-through;
 }
 
 .btn {
@@ -123,31 +109,31 @@ picture img {
     flex-direction: row;
     align-items: center;
     justify-content: center;
-    margin-inline-start: 2.05rem;
-    margin-block-end: 2.05rem;
-    width: clamp(14.688rem, calc(18.913rem - 4.695vw), 17.813rem);
-    font-family: 'Montserrat', sans-serif;
-    font-size: 0.875rem;
-    font-weight: 700;
-    padding-block-end: 0.95rem;
-    padding-block-start: 1rem;
-    border: none;
-    border-radius: 0.5rem;
+    margin: 0;
     background-color: var(--Green-500);
     color: var(--White);
+    font-family: 'Montserrat', sans-serif;
+    font-size: 0.8753rem;
+    font-weight: 700;
+    border: none;
+    border-radius: 0.5rem;
+    padding-block: clamp(0.875rem, calc(1.171rem - 0.329vw), 1.094rem) 1rem; 
 }
 
 .btn img {
-    width: 25px;
-    height: 15px;
-    height: auto;
-    object-fit: cover;
-    padding-inline-end: 1.605rem;
+    margin: 0;
+    padding-inline-end: 0.76em;
 }
 
-.attribution { 
+.btn:hover {
+    background-color: var(--Green-700);
+    cursor: pointer;
+}
+
+.attribution {     
     font-size: 0.6875rem; 
-    text-align: center;     
+    text-align: center;   
+    padding-block-start: 0.5rem;  
 }
 
 .attribution-link { 
@@ -155,14 +141,19 @@ picture img {
 }
 
 @media (min-width: 48rem)  /* 48rem = 768px*/ {
+    body {
+        justify-content: center;
+        padding-block-start: 1.25rem;
+    }
+
     .card {
         flex-direction: row;
         align-items: stretch; /* Vynúti rovnakú výšku stĺpcov */
-    }   
+    }
 
     picture, .content {
-        flex: 1;
-        width: 50%; /* Zabezpečí presnú polovicu */
-        height: 56.5vh;
+        /* aby obe časti zaberali presne polovicu */
+        flex: 1 1 50%;
+        width: 50%;
     }
 }
